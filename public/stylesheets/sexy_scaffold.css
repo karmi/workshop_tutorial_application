@@ -1,0 +1,100 @@
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~                            sexy_scaffold.css                          ~ */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* ~~~ Body ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+body 
+  { color: #222; 
+    background: #fff;
+    font-size: 75%; 
+    font-family: 'Lucida Grande', Helvetica, Verdana, sans-serif; 
+    margin: 4em; }
+
+/* ~~~ Headers ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+h1, h2, h3,h4,h5, h6 
+  { color: #444; }
+
+h1
+  { color: #666;
+    font-size: 140%;
+    border-bottom: 2px solid #666; 
+    margin-bottom: 1em; }
+
+/* ~~~ Typography ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+p
+  { margin: 0; }
+pre 
+  { padding: 1em;
+    background: #f8f8f8;
+    border: 1px solid #eee; 
+    white-space: pre; }
+a img
+  { border: none; }
+
+a, a:visited  
+  { color: #305899; }
+  
+hr 
+  { background: #ddd; 
+    height: .1em;
+    border: none; }
+
+
+/* ~~~ Tables ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+table
+  { border-collapse: collapse; }
+
+th
+  { background-color: #eee; }
+td
+  { padding: 0.5em;
+    border: 1px solid #eee; }
+    
+/* ~~~ Forms ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+form
+  { border: 1px solid #ccc;
+    margin: 0 0 0.5em 0; padding: 1em; }
+
+input[type=text]
+  { padding: 0.3em;
+    border: 1px solid #666; }
+
+/* ~~~ Form errors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+#errorExplanation
+  { background-color: #f0f0f0;
+    border: 2px solid #c00; 
+    padding: 0 0 1em 0; margin-bottom: 1.5em; }
+#errorExplanation h2 {
+  color: #fff;
+  background-color: #c00;
+  font-size: 115%;
+  padding: 0.5em 0.5em 0.8em 0.5em;
+  margin: 0; }
+#errorExplanation p
+  { color: #333;
+    margin: 1em 1em 0.5em 0.5em; }
+#errorExplanation ul
+  { margin: 0; 
+    list-style: square; }
+    
+.fieldWithErrors 
+  { padding: 1px;
+    background-color: #c00;
+    display: table; }
+.fieldWithErrors input[type=text],
+.fieldWithErrors input[type=password],
+.fieldWithErrors textarea 
+  { border: 2px solid #CC0000; }
+
+.formError 
+  { color: #CC0000; }  
+
+/* Success, error & notice boxes for messages and errors adapted from Blueprint CSS framework */
+/* (c) Blueprint CSS framework and its authors */
+/* http://code.google.com/p/blueprintcss/source/browse/blueprint/trunk/blueprint/src/forms.css */ 
+.error,
+.notice     { color: #FFFFFF; font-weight: bold; margin-bottom: 1.5em; padding: 0.8em 1em; }
+.error      { background: #CC0000; }
+.notice     { background: #00AA00; }
+.error a,
+.notice a   { color: #D12F19; text-decoration: underline; }
