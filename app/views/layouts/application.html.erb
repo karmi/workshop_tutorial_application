@@ -4,11 +4,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Tasks: <%= controller.action_name %></title>
+  <title><%= controller.controller_name %>: <%= controller.action_name %></title>
   <%= stylesheet_link_tag 'scaffold' %>
   <%= stylesheet_link_tag 'sexy_scaffold' %>
 </head>
 <body>
+  
+<div id="menu">
+  <%= link_to_unless_current "Projects", projects_path %> &nbsp; | 
+  <%= link_to_unless_current "Tasks", tasks_path %>
+</div>
 
 <p style="color: green"><%= flash[:notice] %></p>
 
