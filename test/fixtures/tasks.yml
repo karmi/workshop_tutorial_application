@@ -1,11 +1,17 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-one:
-  name: MyString
-  due_on: 2008-07-19
+milk:
+  name: Buy milk
+  due_on: <%= Time.now %>
   completed: false
+  project: home
 
-two:
-  name: MyString
-  due_on: 2008-07-19
+bread:
+  name: Buy bread
+  due_on: <%= Time.now.tomorrow %>
+  completed: true
+  project: home
+
+presentation:
+  name: Prepare presentation
+  due_on: <%= 2.day.since %>
   completed: false
+  project: office
