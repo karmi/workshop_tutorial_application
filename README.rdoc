@@ -1,0 +1,33 @@
+= Planner
+
+Tutorial application live-coded at Ruby on Rails workshops by Karel Minarik (karmi@karmi.cz).
+
+Basically a clone of classic TadaList (http://www.tadalist.com/), offering similar functionality:
+
+* Managing tasks
+* Grouping tasks into projects (Project has_many :tasks )
+* Ajax interactivity for toggling state of tasks
+* Atom feed for recently completed tasks
+* Contains basic functional and unit tests
+
+
+== About
+
+The application has very, very simple set of features, but enables to teach effective Rails development and practices. 
+
+You start from generated, scaffolded Rails application, and continually enhance the presentation layer, add associations,
+add Ajax interactivity, add Atom syndication and write finally tests.
+
+
+== Learn
+
+Application is constructed in small steps from blank, generated Rails application, every step is commited into Git.
+
+You can check diffs for the important steps in Git tags.
+
+Development takes about 4-5 hours in real time workshop.
+
+
+== Contact
+
+See http://www.karmi.cz/#ruby-on-rails-workshops for information about the workshops (in Czech).
