@@ -130,4 +130,13 @@ class TasksController < ApplicationController
     redirect_to projects_path
   end
   
+  # Recently completed tasks
+  def recent
+    @tasks = Task.all_completed.recently_completed
+    respond_to do |format|
+      format.html { render :action => 'index' }
+      format.atom #recent.atom.builder
+    end
+  end
+  
 end

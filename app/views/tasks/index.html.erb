@@ -5,6 +5,7 @@
     <th>Name</th>
     <th>Due on</th>
     <th>Completed</th>
+    <th>Completed at</th>
   </tr>
 
 <% for task in @tasks %>
@@ -12,6 +13,7 @@
     <td><%=h task.name %></td>
     <td><%=h task.due_on %></td>
     <td><%=h task.completed %></td>
+    <td><%= task.completed_at %></td>
     <td><%= link_to 'Show', task %></td>
     <td><%= link_to 'Edit', edit_task_path(task) %></td>
     <td><%= link_to 'Destroy', task, :confirm => 'Are you sure?', :method => :delete %></td>

@@ -4,7 +4,8 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :tasks,
     :member => { :toggle => :post },
-    :collection => { :toggle_all => :post }
+    :collection => { :toggle_all => :post,
+                     :recent     => :get }
   map.resources :projects
 
   # The priority is based upon order of creation: first created -> highest priority.
