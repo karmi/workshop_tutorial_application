@@ -14,12 +14,13 @@
     ul { padding: 0; }
     li { list-style-type: none; margin: 0 0 0.5em 0; }
     li.completed { color: #444; font-size: 95%; }
-    li.completed a { color: #444; }
-    li.completed span { display:none; }
+    li.completed a { color: #666; }
     .notice { background: #E6EFC2; color: #264409; border: 1px solid #C6D880; padding: 1em; }
     #menu { margin-bottom: 1.5em; }
     form.button-to, form.button-to div { border: none; padding: 0; margin: 0; display: inline; }
   </style>
+  
+  <%= javascript_include_tag :defaults, :cache => true %>
 </head>
 <body>
   

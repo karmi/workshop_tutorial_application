@@ -107,10 +107,16 @@ class TasksController < ApplicationController
   # Toggles between completed and uncompleted states
   def toggle
     if @task.toggle! :completed
-      flash[:notice] = (@task.completed?) ? 'Task was completed' : 'Task was opened again'
+      flash[:notice] = (@task.completed?) ? 'Task was completed' : 'Task was opened again' unless request.xhr?
     end
     respond_to do |format|
       format.html { redirect_to projects_path }
+      format.js do
+        render :update do |page|
+          page.replace dom_id(@task), :partial => 'task', :object => @task
+          page.visual_effect :highlight, dom_id(@task), :duration => 1.5, :delay => 0.3
+        end
+      end
     end    
   end
   
