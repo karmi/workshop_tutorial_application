@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.xml
   def index
-    @tasks = Task.find(:all)
+    @tasks = Task.find(:all, :order => 'due_on ASC')
 
     respond_to do |format|
       format.html # index.html.erb
