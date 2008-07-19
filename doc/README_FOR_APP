@@ -1,2 +1,16 @@
-Use this README file to introduce your application and point to useful places in the API for learning more.
-Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
+Tutorial application live-coded at Ruby on Rails workshops by Karel Minarik (karmi@karmi.cz).
+
+Basically a clone of classic TadaList (http://www.tadalist.com/), offering similar functionality:
+
+* Managing tasks
+* Grouping tasks into projects (Project has_many :tasks )
+* Ajax interactivity for toggling state of tasks
+* Atom feed for recently completed tasks
+* Contains basic functional and unit tests
+
+Application is constructed in small steps from blank, generated Rails application, every step is commited into Git.
+
+Check diffs for the important steps in Git tags.
+
+
+See http://www.karmi.cz/#ruby-on-rails-workshops for information about the workshops (in Czech).
