@@ -1,5 +1,5 @@
 <li id="<%= dom_id(task) %>" class="<%= css_class_for_task(task) %>">
-  <%= check_box_tag('completed[]', 1, task.completed?, 
+  <%= check_box_tag('completed[]', task.id, task.completed?, 
         :onclick => remote_function( :url => toggle_task_path(task) )) %>
   &nbsp;
   <%# button_to (task.completed?) ? "Open again" : "Complete", toggle_task_path(task) %>

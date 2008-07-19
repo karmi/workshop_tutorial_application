@@ -1,5 +1,7 @@
 <h1>Projects</h1>
 
+<%- form_tag( toggle_all_tasks_path, :style => 'border: none' ) do -%>
+
 <% @projects.each do |project| %>
 <h2>
   <%= project.name %> 
@@ -14,12 +16,19 @@
   <ul>
     <%= render :partial => "tasks/task", :collection => project.tasks %>
   </ul>
+  <p><%= link_to "Add new task", new_task_path %></p>
   <%- else -%>
   <p>This project has no tasks. <%= link_to "Add one", new_task_path %>!</p>
   <%- end -%>
   
 <%- end -%>
 
+<noscript><br /><%= submit_tag "Complete checked tasks" %></noscript>
+
+<%- end -%>
+
 <hr />
 
 <%= link_to 'New project', new_project_path %>
+
+<p><br /><small><strong>Note:</strong> Disable JavaScript to try non-Ajax interface</small></p>

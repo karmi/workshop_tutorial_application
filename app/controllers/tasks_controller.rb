@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   
   before_filter :load_collection, :only => 'index'
-  before_filter :load_object,     :except => ['index', 'new', 'create', 'recent']
+  before_filter :load_object,     :only => ['show', 'edit', 'toggle']
   
   private
   
@@ -55,7 +55,6 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
-    @task = Task.find(params[:id])
   end
 
   # POST /tasks
@@ -78,8 +77,6 @@ class TasksController < ApplicationController
   # PUT /tasks/1
   # PUT /tasks/1.xml
   def update
-    @task = Task.find(params[:id])
-
     respond_to do |format|
       if @task.update_attributes(params[:task])
         flash[:notice] = 'Task was successfully updated.'
@@ -95,9 +92,7 @@ class TasksController < ApplicationController
   # DELETE /tasks/1
   # DELETE /tasks/1.xml
   def destroy
-    @task = Task.find(params[:id])
     @task.destroy
-
     respond_to do |format|
       format.html { redirect_to(tasks_url) }
       format.xml  { head :ok }
@@ -118,6 +113,21 @@ class TasksController < ApplicationController
         end
       end
     end    
+  end
+  
+  # Toggles state for all tasks based on params[:completed] from checkbox values (non-Ajax only)
+  # NOTE : params[:completed] holds IDs of tasks which should be set to completed
+  def toggle_all
+    redirect_to root_path if params[:completed].blank?
+    @all = Task.all
+    @completed = Task.find( params[:completed] )
+    Task.transaction do
+      # Update all tasks for which we have not received ID (= checkbox unchecked) to uncompleted
+      Task.update_all( { :completed => false },  [ "id IN (?)", (@all - @completed).collect {|t| t.id} ]  )
+      # Update all tasks for received IDs as completed
+      Task.update_all( { :completed => true  },  [ "id IN (?)", params[:completed] ]  )
+    end
+    redirect_to projects_path
   end
   
 end
