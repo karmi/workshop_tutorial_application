@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   
   before_filter :load_collection, :only => 'index'
-  before_filter :load_object,     :only => ['show', 'edit', 'toggle']
+  before_filter :load_object,     :only => ['show', 'toggle', 'edit', 'update', 'destroy']
   
   private
   

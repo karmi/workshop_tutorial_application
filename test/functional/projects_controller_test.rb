@@ -14,30 +14,30 @@ class ProjectsControllerTest < ActionController::TestCase
 
   def test_should_create_project
     assert_difference('Project.count') do
-      post :create, :project => { }
+      post :create, :project => { :name => 'Test project' }
     end
 
-    assert_redirected_to project_path(assigns(:project))
+    assert_redirected_to projects_path
   end
 
   def test_should_show_project
-    get :show, :id => projects(:one).id
+    get :show, :id => projects(:office).id
     assert_response :success
   end
 
   def test_should_get_edit
-    get :edit, :id => projects(:one).id
+    get :edit, :id => projects(:office).id
     assert_response :success
   end
 
   def test_should_update_project
-    put :update, :id => projects(:one).id, :project => { }
-    assert_redirected_to project_path(assigns(:project))
+    put :update, :id => projects(:office).id, :project => { }
+    assert_redirected_to projects_path
   end
 
   def test_should_destroy_project
     assert_difference('Project.count', -1) do
-      delete :destroy, :id => projects(:one).id
+      delete :destroy, :id => projects(:office).id
     end
 
     assert_redirected_to projects_path
