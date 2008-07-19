@@ -13,6 +13,7 @@
   <%=h @task.completed %>
 </p>
 
+<p>Belongs to project: <strong><%= @task.project.blank? ? 'N/A' : link_to(@task.project.name, @task.project)   %></strong></p>
 
 <%= link_to 'Edit', edit_task_path(@task) %> |
 <%= link_to 'Back', tasks_path %>

@@ -1,5 +1,7 @@
 class Task < ActiveRecord::Base
 
+  belongs_to :project
+
   validates_presence_of :name, :due_on
   
   # Validates that due date for task cannot be in the past

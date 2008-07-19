@@ -3,18 +3,8 @@
 <% form_for(@task) do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :due_on %><br />
-    <%= f.date_select :due_on %>
-  </p>
-  <p>
-    <%= f.label :completed %><br />
-    <%= f.check_box :completed %>
-  </p>
+  <%= render :partial => "form", :locals => { :f => f } %>
+  
   <p>
     <%= f.submit "Create" %>
   </p>

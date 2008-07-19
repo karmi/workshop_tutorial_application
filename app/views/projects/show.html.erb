@@ -8,6 +8,15 @@
   <%=h @project.description %>
 </p>
 
+<h3>Tasks for this project:</h3>
+
+<ul>
+  <%- @project.tasks.each do |task| -%>
+  <li><%= link_to task.name, task %>, due on <%= task.due_on.to_s(:short) %></li>
+  <%- end -%>
+</ul>
+
+<hr />
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>

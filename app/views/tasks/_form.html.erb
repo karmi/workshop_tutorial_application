@@ -1,0 +1,17 @@
+<p>
+  <%= f.label :name %><br />
+  <%= f.text_field :name %>
+</p>
+<p>
+  <%= f.label :due_on %><br />
+  <%= f.date_select :due_on %>
+</p>
+<p>
+  <%= f.label :completed %><br />
+  <%= f.check_box :completed %>
+</p>
+
+<p>
+  <%= f.label :project %><br />
+  <%= f.select('project_id', Project.find_for_select)   %>
+</p>
