@@ -1,22 +1,25 @@
-<h1>Listing projects</h1>
+<h1>Projects</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-  </tr>
+<% @projects.each do |project| %>
+<h2>
+  <%= project.name %> 
+  <small>
+  &nbsp; &nbsp; 
+  <%= link_to "Edit", edit_project_path(project) %> | 
+  <%= link_to "Delete", project, :method => 'delete', :confirm => "Are you sure to delete project #{h(project.name)}"  %>
+  </small>
+</h2>
 
-<% for project in @projects %>
-  <tr>
-    <td><%=h project.name %></td>
-    <td><%=h project.description %></td>
-    <td><%= link_to 'Show', project %></td>
-    <td><%= link_to 'Edit', edit_project_path(project) %></td>
-    <td><%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+  <%- unless project.tasks.empty? -%>
+  <ul>
+    <%= render :partial => "tasks/task", :collection => project.tasks %>
+  </ul>
+  <%- else -%>
+  <p>This project has no tasks. <%= link_to "Add one", new_task_path %>!</p>
+  <%- end -%>
+  
+<%- end -%>
 
-<br />
+<hr />
 
 <%= link_to 'New project', new_project_path %>

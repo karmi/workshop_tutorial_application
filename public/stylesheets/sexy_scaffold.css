@@ -37,7 +37,8 @@ a, a:visited
 hr 
   { background: #ddd; 
     height: .1em;
-    border: none; }
+    border: none;
+    margin: 1.5em 0 1.5em 0; }
 
 
 /* ~~~ Tables ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */

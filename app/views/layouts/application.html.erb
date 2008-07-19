@@ -5,8 +5,21 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title><%= controller.controller_name %>: <%= controller.action_name %></title>
+
   <%= stylesheet_link_tag 'scaffold' %>
   <%= stylesheet_link_tag 'sexy_scaffold' %>
+  
+  <style type="text/css" media="screen">
+    h2 small { font-size: 75%; }
+    ul { padding: 0; }
+    li { list-style-type: none; margin: 0 0 0.5em 0; }
+    li.completed { color: #444; font-size: 95%; }
+    li.completed a { color: #444; }
+    li.completed span { display:none; }
+    .notice { background: #E6EFC2; color: #264409; border: 1px solid #C6D880; padding: 1em; }
+    #menu { margin-bottom: 1.5em; }
+    form.button-to, form.button-to div { border: none; padding: 0; margin: 0; display: inline; }
+  </style>
 </head>
 <body>
   
@@ -15,7 +28,7 @@
   <%= link_to_unless_current "Tasks", tasks_path %>
 </div>
 
-<p style="color: green"><%= flash[:notice] %></p>
+<%- if flash[:notice] -%><p class="notice"><%= flash[:notice] %></p><%- end -%>
 
 <%= yield  %>
 

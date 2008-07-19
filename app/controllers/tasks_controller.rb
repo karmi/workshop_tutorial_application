@@ -1,4 +1,24 @@
 class TasksController < ApplicationController
+  
+  before_filter :load_collection, :only => 'index'
+  before_filter :load_object,     :except => ['index', 'new', 'create', 'recent']
+  
+  private
+  
+  def load_collection
+    if params[:project_id]
+      @tasks = Project.find(params[:project_id]).tasks
+    else
+      @tasks = Task.all_ordered
+    end
+  end
+  
+  def load_object
+    @task = Task.find(params[:id])
+  end
+  
+  public
+  
   # GET /tasks
   # GET /tasks.xml
   def index
@@ -83,4 +103,15 @@ class TasksController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  # Toggles between completed and uncompleted states
+  def toggle
+    if @task.toggle! :completed
+      flash[:notice] = (@task.completed?) ? 'Task was completed' : 'Task was opened again'
+    end
+    respond_to do |format|
+      format.html { redirect_to projects_path }
+    end    
+  end
+  
 end
