@@ -1,8 +1,9 @@
 require 'test_helper'
 
 class ProjectTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  def test_truth
-    assert true
+
+  def test_project_should_have_proper_tasks
+    assert_equal projects(:office), tasks(:presentation).project
   end
+
 end
