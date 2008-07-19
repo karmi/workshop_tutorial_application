@@ -7,4 +7,6 @@ class Task < ActiveRecord::Base
     record.errors.add(attribute, 'date cannot be in the past') if value.to_time < Date.today.to_time
   end
   
+  named_scope :all_ordered, :order => 'due_on ASC'
+  
 end
