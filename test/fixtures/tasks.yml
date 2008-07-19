@@ -9,6 +9,7 @@ bread:
   due_on: <%= Time.now.tomorrow %>
   completed: true
   project: home
+  completed_at: <%= Time.now %>
 
 presentation:
   name: Prepare presentation

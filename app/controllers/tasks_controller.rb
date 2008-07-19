@@ -6,11 +6,7 @@ class TasksController < ApplicationController
   private
   
   def load_collection
-    if params[:project_id]
-      @tasks = Project.find(params[:project_id]).tasks
-    else
-      @tasks = Task.all_ordered
-    end
+    @tasks = Task.all_ordered
   end
   
   def load_object
